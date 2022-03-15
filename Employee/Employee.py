@@ -47,7 +47,9 @@ class Employee(Person):
         send_mail_valid = emailValidation(self.to)
         if send_mail_valid!=True:
             print("Invalid email! please enter a valid one.")
-        with open(f"{subject} to {to}.txt", 'w') as email:
+        with open("mail.txt", 'w') as email:
             message = f"From: {self.email}\n" \
                       f"To: {to}\n\n" \
                       f"Hi, {receiver_name}\n" \
+                      f"{msg}\n"
+            email.write(message)
